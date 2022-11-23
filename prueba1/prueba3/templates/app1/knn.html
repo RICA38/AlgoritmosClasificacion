@@ -1,0 +1,41 @@
+{% extends 'app1/base.html' %}
+
+{% block title%}KNN{% endblock title %}
+
+{% block content %} 
+
+<img src="https://th.bing.com/th/id/OIP.ZUylWrAPTNhTSDxYDLPF8wAAAA?pid=ImgDet&rs=1" width ='150px'> 
+    
+      <br><h5>Ingresar el numero de K vecinas<h5>
+      <h5>Ingrese las variables correspondientes para X1, X2 y X3<h5></p>
+    </div>
+    <form class="row gx-3 gy-2 align-items-center"  action="/algoritmo_knn/" method="post">
+        {% csrf_token %}
+        
+          <input type="text" class="form-control" name="k" id="specificSizeInputX" placeholder="Vecinas">
+        
+          <input type="text" class="form-control" name="x" id="specificSizeInputX" placeholder="X1">
+        
+            <input type="text" class="form-control" name="y" id="specificSizeInputY" placeholder="X2">
+         
+            <input type="text" class="form-control" name="z" id="specificSizeInputZ" placeholder="X3">
+        
+          <button type="submit" class="btn btn-primary">Clasificar</button>
+       
+    </form>
+    <br>
+    <table class="table table-success table-striped table-bordered"  BORDER=10  >
+        <thead>
+            <th scope="col">Resultados</th>
+        </thead>
+        <tbody>
+          {%for val in dist%}
+            <tr id="tabla2">
+              <td>{{val}}</td>
+              <td>{{knn}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+    {{knn}}
+{% endblock %} 

@@ -1,0 +1,29 @@
+{% extends 'app1/base.html' %}
+
+{% block title%}CBI{% endblock title %}
+
+{% block content %} 
+
+<img src="https://www.bitkraft.vc/wp-content/uploads/2020/03/bklogo-bayes-bw.png" width ='200px'> 
+    <p><h5>Agrega valores a x1, x2 y x3</h5></p>
+    <form class="row gx-3 gy-2 align-items-center"  action="/algoritmo_cbi/" method="post">
+        {% csrf_token %}
+        
+          <input type="text" class="form-control" name="x" id="specificSizeInputX" placeholder="X1">
+        
+            <input type="text" class="form-control" name="y" id="specificSizeInputY" placeholder="X2">
+          
+            <input type="text" class="form-control" name="z" id="specificSizeInputZ" placeholder="X3">
+        
+          <button type="submit" class="btn btn-primary">Clasificar</button>
+        </div>
+    </form>
+    <br>
+    {%for val in letra%}
+      <div class="alert alert-primary" role="alert">
+        La letras es: {{val}}
+      </div>
+    {% endfor %}
+    
+    
+{% endblock %} 
